@@ -13,12 +13,12 @@
 # Aditional files
 *.json
 *.css
-.map
-.js
-.cache
-.bin/
-.wwwroot/
-.obj/
+*.map
+*.js
+*.cache
+bin/
+wwwroot/
+obj/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
