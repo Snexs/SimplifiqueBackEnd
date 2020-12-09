@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Simplifique.Domain
+﻿namespace Simplifique.Domain
 {
-    class Login
+    public class Login
     {
+        public string email { get; set; }
+        public string Senha { get; set; }
     }
 }

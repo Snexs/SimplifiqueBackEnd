@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Simplifique.Application
 {
-    class ServicoApp
+    public class AnuncioApp
     {
     }
 }

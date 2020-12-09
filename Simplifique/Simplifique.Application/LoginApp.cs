@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Simplifique.Service
+namespace Simplifique.Application
 {
-    class PrestadorService
+    public class LoginApp
     {
     }
 }

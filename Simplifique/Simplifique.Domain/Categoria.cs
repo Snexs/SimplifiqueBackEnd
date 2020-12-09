@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Simplifique.Domain
 {
-    class Categoria
+    public class Categoria
     {
+        public Guid IdCategoria { get; set; }
+        public string Nome { get; set; }
+
     }
 }

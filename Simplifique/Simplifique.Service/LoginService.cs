@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Simplifique.Service
 {
-    class LoginService
+    public class LoginService
     {
     }
 }

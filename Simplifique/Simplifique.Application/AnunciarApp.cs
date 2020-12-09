@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Simplifique.Domain
+namespace Simplifique.Application
 {
-    class Pagamento
+    public class AnunciarApp
     {
     }
 }

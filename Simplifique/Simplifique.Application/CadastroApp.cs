@@ -2,7 +2,7 @@
 
 namespace Simplifique.Application
 {
-    public class ClienteApp
+    public class CadastroApp
     {
     }
 }

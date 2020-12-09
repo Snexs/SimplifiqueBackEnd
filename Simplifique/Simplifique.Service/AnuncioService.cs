@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Simplifique.Domain
+namespace Simplifique.Service
 {
-    class Prestador
+    public class AnuncioService
     {
     }
 }
