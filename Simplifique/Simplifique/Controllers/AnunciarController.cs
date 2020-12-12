@@ -4,11 +4,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Simplifique.Controllers
 {
-    public class HomeController : Controller
+    public class AnunciarController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<AnunciarController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public AnunciarController(ILogger<AnunciarController> logger)
         {
             _logger = logger;
         }
