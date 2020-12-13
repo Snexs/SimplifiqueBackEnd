@@ -23,6 +23,8 @@ namespace Simplifique.Repository
 
             modelBuilder.Entity<Anuncio>().HasKey(a => a.IdAnuncio);
             modelBuilder.Entity<Anuncio>().HasOne(a => a.IdAnunciar);
+
+            modelBuilder.Entity<Contato>().HasOne(a => a.IdAnunciar);
         }
     }
 }
