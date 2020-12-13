@@ -6,7 +6,7 @@ namespace Simplifique.Domain
     {
         public Guid IdUsuario { get; set; }
         public string Nome { get; set; }
-        public double CPF_CNPJ { get; set; }
+        public double Cpf_Cnpj { get; set; }
         public DateTime DataDeNascimento { get; set; }
         public double Telefone { get; set; }
         public string Email { get; set; }
