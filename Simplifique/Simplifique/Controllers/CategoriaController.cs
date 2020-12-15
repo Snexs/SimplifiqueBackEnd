@@ -3,45 +3,52 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Simplifique.Domain;
+using Simplifique.Domain.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Simplifique.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class CategoriaController : ControllerBase
     {
-        // GET: api/<CategoriaController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+
+        private readonly ICategoriaRepository _categoria;
+
+        public CategoriaController(ICategoriaRepository categoriaRepository)
         {
-            return new string[] { "value1", "value2" };
+            _categoria = categoriaRepository;
         }
 
-        // GET api/<CategoriaController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("/api/categorias")]
+        public async Task<IActionResult> ConsultarCategorias()
         {
-            return "value";
+            var categorias = await _categoria.ConsultarCategorias();
+            return Ok(categorias);
         }
 
-        // POST api/<CategoriaController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpGet("/api/categorias/{id}")]
+        public async Task<IActionResult> ConsultarCategoriaPorId(Guid id)
         {
+            var categoria = await _categoria.ConsultarCategoriaPorId(id);
+            return Ok(categoria);
         }
 
-        // PUT api/<CategoriaController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPost("/api/categoria")]
+        public async Task<IActionResult> CadastrarCategoria([FromBody] Categoria categoriaitem)
         {
+            var cadastrarCategoria = await _categoria.CadastrarCategoria(categoriaitem);
+            return Ok(cadastrarCategoria);
         }
 
-        // DELETE api/<CategoriaController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpPut("/api/categoria/{id}")]
+        public async Task<IActionResult> AtualizarCategoria(Guid id, [FromBody] Categoria categoriaInserida)
         {
+            var atualizarCategoria = await _categoria.AtualizarCategoria(id, categoriaInserida);
+            return Ok(atualizarCategoria);
         }
+
     }
 }
