@@ -13,8 +13,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="5.6.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Simplifique.Models\Simplifique.Models.csproj" />
-  </ItemGroup>
-
 </Project>

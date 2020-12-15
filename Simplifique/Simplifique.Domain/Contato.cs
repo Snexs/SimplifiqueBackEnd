@@ -1,8 +1,11 @@
-﻿namespace Simplifique.Domain
+﻿using System;
+
+namespace Simplifique.Domain
 {
     public class Contato
     {
-        public Anunciar IdAnunciar { get; set; }
+        public Guid IdContato { get; set; }
+        public Cadastro IdUsuario { get; set; }
 
         public string Facebook { get; set; }
 
