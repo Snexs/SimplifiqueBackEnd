@@ -11,11 +11,11 @@ namespace Simplifique.Domain
 
         public string Instagram { get; set; }
 
-        public float WhatsApp { get; set; }
+        public Telefone WhatsApp { get; set; }
 
         public string Email { get; set; }
 
-        public float Telefone { get; set; }
+        public Telefone Telefone { get; set; }
 
     }
 }

@@ -18,7 +18,7 @@ namespace Simplifique.Infra
             services.AddScoped<IAnunciarRepository, AnunciarRepository>();
             services.AddScoped<IAnuncioRepository, AnuncioRepository>();
             services.AddScoped<ICadastroRepository, CadastroRepository>();
-            services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<IContatoRepository, ContatoRepository>();
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<SimplifiqueContext>();
 

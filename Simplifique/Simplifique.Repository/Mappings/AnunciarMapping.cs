@@ -15,6 +15,7 @@ namespace Simplifique.Infra.Mappings
             builder.Property(a => a.Contato).IsRequired().HasColumnType("varchar(150)");
             builder.Property(a => a.Descricao).IsRequired().HasColumnType("varchar(150)");
             builder.Property(a => a.Valor).IsRequired().HasColumnType("int");
+            builder.Property(a => a.Titulo).IsRequired().HasColumnType("varchar(100)");
 
             builder.ToTable("Anunciar");
         }
