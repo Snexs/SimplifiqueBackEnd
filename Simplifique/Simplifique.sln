@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplifique.Domain", "Simpl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplifique.Infra", "Simplifique.Repository\Simplifique.Infra.csproj", "{465B1D0F-8803-4C74-B84E-C93083226BAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplifique.Model", "Simplifique.Model\Simplifique.Model.csproj", "{7EC3CB36-A524-4A10-96D3-4B4E3B308C1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{465B1D0F-8803-4C74-B84E-C93083226BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{465B1D0F-8803-4C74-B84E-C93083226BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{465B1D0F-8803-4C74-B84E-C93083226BAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EC3CB36-A524-4A10-96D3-4B4E3B308C1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC3CB36-A524-4A10-96D3-4B4E3B308C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC3CB36-A524-4A10-96D3-4B4E3B308C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC3CB36-A524-4A10-96D3-4B4E3B308C1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

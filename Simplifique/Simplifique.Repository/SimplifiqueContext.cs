@@ -1,13 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Simplifique.Domain;
 using Simplifique.Domain.Interfaces;
-using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Simplifique.Infra
 {
-    public class SimplifiqueContext : DbContext, IUnitOfWork
+    public class SimplifiqueContext : IdentityDbContext<ApplicationUser>, IUnitOfWork
     {
         public SimplifiqueContext(DbContextOptions<SimplifiqueContext> options) : base(options)
         {
@@ -22,12 +21,13 @@ namespace Simplifique.Infra
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
+            //    e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
+            //    property.SetColumnType("varchar(150)");
 
-            foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
-                e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
-                property.SetColumnType("varchar(150)");
+            //modelBuilder.ApplyConfigurationsFromAssembly(typeof(SimplifiqueContext).Assembly);
 
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(SimplifiqueContext).Assembly);
+            base.OnModelCreating(modelBuilder);
         }
 
 
