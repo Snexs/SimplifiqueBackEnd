@@ -10,9 +10,7 @@ namespace Simplifique.Infra.Mappings
         {
             builder.HasKey(c => c.IdCategoria);
 
-            builder.Property(c => c.Nome)
-                .IsRequired()
-                .HasColumnType("varchar(60)");
+            builder.Property(c => c.Nome).IsRequired().HasColumnType("varchar(60)");
 
             builder.ToTable("Categoria");
 

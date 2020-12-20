@@ -12,9 +12,9 @@ namespace Simplifique.Infra.Mappings
 
             builder.OwnsOne(c => c.IdUsuario, cto =>
             {
-                cto.Property(c => c.IdUsuario)
-                .IsRequired()
-                .HasColumnType("varchar(36)");
+                cto.WithOwner().HasForeignKey("IdUsuario");
+                cto.Property(c => c.IdUsuario).IsRequired();
+                cto.HasKey("IdUsuario");
             });
 
             builder.Property(c => c.Facebook).HasColumnType("varchar(100)");
@@ -27,8 +27,4 @@ namespace Simplifique.Infra.Mappings
 
         }
     }
-}
-
-{
-}
 }

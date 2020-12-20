@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Simplifique.Domain
+﻿namespace Simplifique.Domain
 {
     public class Cep
     {
-        public int Cep { get; set; }
+        public int Numero { get; set; }
+        public int Digito { get; set; }
     }
 }

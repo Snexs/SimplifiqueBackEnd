@@ -25,7 +25,7 @@ namespace Simplifique.Infra.Repository
 
         public async Task<Contato> AtualizarContato(Guid IdUsuario, Contato contactItem)
         {
-            var clienteAntigo = await _context.Clientes.FindAsync(IdUsuario);
+            var clienteAntigo = await _context.Contato.FindAsync(IdUsuario);
             _context.Entry(clienteAntigo).CurrentValues.SetValues(contactItem);
             await _context.Commit();
             return contactItem;

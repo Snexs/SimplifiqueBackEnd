@@ -11,16 +11,38 @@ namespace Simplifique.Infra.Mappings
             builder.HasKey(c => c.IdUsuario);
 
             builder.Property(c => c.Nome).IsRequired().HasColumnType("varchar(100)");
-            builder.Property(c => c.Cpf_Cnpj).IsRequired().HasColumnType("bigint");
-            builder.Property(c => c.Email).IsRequired().HasColumnType("varchar(100)");
             builder.Property(c => c.DataDeNascimento).IsRequired().HasColumnType("datetime");
-            builder.Property(c => c.Endereco).IsRequired().HasColumnType("varchar(100)");
-            builder.Property(c => c.CEP).IsRequired().HasColumnType("int");
             builder.Property(c => c.Numero).IsRequired().HasColumnType("int");
             builder.Property(c => c.Complemento).IsRequired().HasColumnType("varchar(100)");
             builder.Property(c => c.Senha).IsRequired().HasColumnType("varchar(100)");
-            builder.Property(c => c.Telefone).IsRequired().HasColumnType("bigint");
             builder.Property(c => c.TipoPessoa).IsRequired().HasColumnType("byte");
+
+            builder.OwnsOne(c => c.Cpf_Cnpj, c =>
+            {
+                c.Property(c => c.Numero).IsRequired().HasColumnType("bigint");
+            });
+
+            builder.OwnsOne(c => c.Email, c =>
+            {
+                c.Property(c => c.EnderecoEmail).IsRequired().HasColumnType("varchar(150)");
+            });
+
+            builder.OwnsOne(c => c.Endereco, c =>
+            {
+                c.Property(c => c.Nome).IsRequired().HasColumnType("varchar(150)");
+            });
+
+            builder.OwnsOne(c => c.CEP, c =>
+            {
+                c.Property(c => c.Numero).IsRequired().HasColumnType("int");
+                c.Property(c => c.Digito).IsRequired().HasColumnType("int");
+            });
+
+            builder.OwnsOne(c => c.Telefone, c =>
+            {
+                c.Property(c => c.Ddd).IsRequired().HasColumnType("int");
+                c.Property(c => c.Numero).IsRequired().HasColumnType("int");
+            });
 
             builder.ToTable("Cadastro");
         }

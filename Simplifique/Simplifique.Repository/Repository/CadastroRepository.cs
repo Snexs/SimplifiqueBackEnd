@@ -17,7 +17,7 @@ namespace Simplifique.Infra.Repository
 
         public async Task<Cadastro> AlterarUsuario(Guid id, Cadastro cliente)
         {
-            var clienteAntigo = await _context.Clientes.FindAsync(id);
+            var clienteAntigo = await _context.Cadastro.FindAsync(id);
             _context.Entry(clienteAntigo).CurrentValues.SetValues(cliente);
             await _context.Commit();
             return cliente;
@@ -26,7 +26,7 @@ namespace Simplifique.Infra.Repository
         public async Task<Cadastro> CadastrarUsuario(string nome, Cpf_Cnpj cpf_Cnpj, DateTime datanasc, Telefone telefone, Email email, string senha, Endereco endereco, int numero, Cep cep, string complemento, TipoPessoaEnum tipoPessoa)
         {
             Cadastro cliente = new Cadastro() {Nome = nome,CEP = cep, Complemento = complemento, DataDeNascimento = datanasc, Cpf_Cnpj = cpf_Cnpj, Email = email, Endereco = endereco, Numero = numero , Senha = senha, Telefone = telefone, TipoPessoa = tipoPessoa };
-            await _context.Clientes.AddAsync(cliente);
+            await _context.Cadastro.AddAsync(cliente);
             await _context.Commit();
             return cliente;
         }
