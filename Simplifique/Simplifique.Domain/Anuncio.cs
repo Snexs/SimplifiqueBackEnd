@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Simplifique.Domain.Entities;
 
 namespace Simplifique.Domain
 {
-    public class Anuncio
+    public class Anuncio : Entity
     {
-        public Guid IdAnuncio { get; set; }
         public string Titulo { get; set; }
         public decimal Valor { get; set; }
         public string Descricao { get; set; }
@@ -13,5 +12,15 @@ namespace Simplifique.Domain
         public Contato Contato { get; set; }
         public string ObservacaoContato { get; set; }
 
+        public Anuncio(string titulo, decimal valor, string descricao, int avaliacao, string comentario, Contato contato, string observacaoContato)
+        {
+            Titulo = titulo;
+            Valor = valor;
+            Descricao = descricao;
+            Avaliacao = avaliacao;
+            Comentario = comentario;
+            Contato = contato;
+            ObservacaoContato = observacaoContato;
+        }
     }
 }

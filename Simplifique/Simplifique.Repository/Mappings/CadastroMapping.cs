@@ -8,12 +8,10 @@ namespace Simplifique.Infra.Mappings
     {
         public void Configure(EntityTypeBuilder<Cadastro> builder)
         {
-            builder.HasKey(c => c.IdUsuario);
+            builder.HasKey(c => c.Id).HasName("IdCadastro");
 
             builder.Property(c => c.Nome).IsRequired().HasColumnType("varchar(100)");
             builder.Property(c => c.DataDeNascimento).IsRequired().HasColumnType("datetime");
-            builder.Property(c => c.Numero).IsRequired().HasColumnType("int");
-            builder.Property(c => c.Complemento).IsRequired().HasColumnType("varchar(100)");
             builder.Property(c => c.Senha).IsRequired().HasColumnType("varchar(100)");
             builder.Property(c => c.TipoPessoa).IsRequired().HasColumnType("byte");
 
@@ -29,13 +27,11 @@ namespace Simplifique.Infra.Mappings
 
             builder.OwnsOne(c => c.Endereco, c =>
             {
-                c.Property(c => c.Nome).IsRequired().HasColumnType("varchar(150)");
-            });
-
-            builder.OwnsOne(c => c.CEP, c =>
-            {
+                c.Property(c => c.NomeEndereco).IsRequired().HasColumnType("varchar(150)");
                 c.Property(c => c.Numero).IsRequired().HasColumnType("int");
-                c.Property(c => c.Digito).IsRequired().HasColumnType("int");
+                c.Property(c => c.Cidade).IsRequired().HasColumnType("varchar(150)");
+                c.Property(c => c.Cep).IsRequired().HasColumnType("int");
+                c.Property(c => c.Estado).IsRequired().HasColumnType("varchar(150)");
             });
 
             builder.OwnsOne(c => c.Telefone, c =>

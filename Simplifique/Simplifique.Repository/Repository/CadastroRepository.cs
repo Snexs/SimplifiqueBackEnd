@@ -1,5 +1,7 @@
 ﻿using Simplifique.Domain;
+using Simplifique.Domain.Enums;
 using Simplifique.Domain.Interfaces;
+using Simplifique.Domain.ValueObjects;
 using System;
 using System.Threading.Tasks;
 
@@ -23,9 +25,9 @@ namespace Simplifique.Infra.Repository
             return cliente;
         }
 
-        public async Task<Cadastro> CadastrarUsuario(string nome, Cpf_Cnpj cpf_Cnpj, DateTime datanasc, Telefone telefone, Email email, string senha, Endereco endereco, int numero, Cep cep, string complemento, TipoPessoaEnum tipoPessoa)
+        public async Task<Cadastro> CadastrarUsuario(Nome nome, Documento cpf_Cnpj, DateTime datanasc, Telefone telefone, Email email, string senha, Endereco endereco, int numero, Cep cep, string complemento, TipoPessoaEnum tipoPessoa)
         {
-            Cadastro cliente = new Cadastro() {Nome = nome,CEP = cep, Complemento = complemento, DataDeNascimento = datanasc, Cpf_Cnpj = cpf_Cnpj, Email = email, Endereco = endereco, Numero = numero , Senha = senha, Telefone = telefone, TipoPessoa = tipoPessoa };
+            Cadastro cliente = new Cadastro(nome,cpf_Cnpj,datanasc,telefone,email,senha,endereco,tipoPessoa);
             await _context.Cadastro.AddAsync(cliente);
             await _context.Commit();
             return cliente;

@@ -8,7 +8,7 @@ namespace Simplifique.Infra.Mappings
     {
         public void Configure(EntityTypeBuilder<Categoria> builder)
         {
-            builder.HasKey(c => c.IdCategoria);
+            builder.HasKey(c => c.Id).HasName("IdCategoria");
 
             builder.Property(c => c.Nome).IsRequired().HasColumnType("varchar(60)");
 

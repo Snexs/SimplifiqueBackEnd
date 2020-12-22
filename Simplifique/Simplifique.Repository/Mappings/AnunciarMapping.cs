@@ -8,27 +8,21 @@ namespace Simplifique.Infra.Mappings
     {
         public void Configure(EntityTypeBuilder<Anunciar> builder)
         {
-            builder.HasKey(a => a.IdAnuncio);
+            builder.HasKey(a => a.Id).HasName("IdAnuncio");
 
             builder.OwnsOne(a => a.Anunciante,c => 
             {
-                c.WithOwner().HasForeignKey("IdUsuario");
-                c.Property(c => c.IdUsuario);
-                c.HasKey("IdUsuario");
+                c.WithOwner().HasForeignKey("Id").HasConstraintName("IdCliente");
             });
 
             builder.OwnsOne(a => a.Categoria, ca =>
             {
-                ca.WithOwner().HasForeignKey("IdCategoria");
-                ca.Property(c => c.IdCategoria);
-                ca.HasKey("IdCategoria");
+                ca.WithOwner().HasForeignKey("Id").HasConstraintName("IdCategoria");
             });
 
             builder.OwnsOne(a => a.Contato, co =>
             {
-                co.WithOwner().HasForeignKey("IdContato");
-                co.Property(c => c.IdContato);
-                co.HasKey("IdContato");
+                co.WithOwner().HasForeignKey("Id").HasConstraintName("IdContato");
             });
 
             builder.Property(a => a.Descricao).IsRequired().HasColumnType("varchar(150)");

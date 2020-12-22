@@ -1,4 +1,4 @@
-﻿namespace Simplifique.Domain
+﻿namespace Simplifique.Domain.Enums
 {
     public enum TipoPessoaEnum
     {

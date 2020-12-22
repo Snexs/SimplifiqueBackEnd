@@ -8,23 +8,21 @@ namespace Simplifique.Infra.Mappings
     {
         public void Configure(EntityTypeBuilder<Contato> builder)
         {
-            builder.HasKey(c => c.IdContato);
+            builder.HasKey(c => c.Id).HasName("IdContato");
 
             builder.OwnsOne(c => c.IdUsuario, cto =>
             {
-                cto.WithOwner().HasForeignKey("IdUsuario");
-                cto.Property(c => c.IdUsuario).IsRequired();
-                cto.HasKey("IdUsuario");
+                cto.WithOwner().HasForeignKey("Id").HasConstraintName("IdUsuario");
             });
 
             builder.Property(c => c.Facebook).HasColumnType("varchar(100)");
             builder.Property(c => c.Instagram).HasColumnType("varchar(100)");
+            builder.Property(c => c.Email).HasColumnType("varchar(100)").IsRequired();
+
             builder.Property(c => c.Telefone).HasColumnType("bigint");
-            builder.Property(c => c.WhatsApp).HasColumnType("bigint");
-            builder.Property(c => c.Email).HasColumnType("varchar(100)");
+            builder.Property(c => c.WhatsApp).HasColumnType("bigint").IsRequired();
 
             builder.ToTable("Contato");
-
         }
     }
 }

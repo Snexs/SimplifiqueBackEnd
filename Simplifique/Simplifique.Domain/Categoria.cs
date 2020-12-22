@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Simplifique.Domain.Entities;
 
 namespace Simplifique.Domain
 {
-    public class Categoria
+    public class Categoria : Entity
     {
-        public Guid IdCategoria { get; set; }
         public string Nome { get; set; }
 
+        public Categoria(string nome)
+        {
+            Nome = nome;
+        }
     }
 }

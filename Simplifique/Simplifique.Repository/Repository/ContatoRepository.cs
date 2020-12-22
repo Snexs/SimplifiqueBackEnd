@@ -1,5 +1,6 @@
 ﻿using Simplifique.Domain;
 using Simplifique.Domain.Interfaces;
+using Simplifique.Domain.ValueObjects;
 using System;
 using System.Threading.Tasks;
 
@@ -15,15 +16,15 @@ namespace Simplifique.Infra.Repository
             _context = context;
         }
 
-        public async Task<Contato> AdicionarContato(Guid IdUsuario, string facebook, string instagram, Telefone telefone, Telefone whatsapp, string email)
+        public async Task<Contato> AdicionarContato(Cadastro IdUsuario, string facebook, string instagram, Telefone telefone, Telefone whatsapp, string email)
         {
-            var contato = new Contato() { Email = email,Facebook = facebook,Instagram = instagram, WhatsApp = whatsapp, Telefone = telefone };
+            var contato = new Contato(IdUsuario,facebook,instagram,whatsapp,email,telefone);
             await _context.AddAsync(contato);
             await _context.Commit();
             return contato;
         }
 
-        public async Task<Contato> AtualizarContato(Guid IdUsuario, Contato contactItem)
+        public async Task<Contato> AtualizarContato(Cadastro IdUsuario, Contato contactItem)
         {
             var clienteAntigo = await _context.Contato.FindAsync(IdUsuario);
             _context.Entry(clienteAntigo).CurrentValues.SetValues(contactItem);

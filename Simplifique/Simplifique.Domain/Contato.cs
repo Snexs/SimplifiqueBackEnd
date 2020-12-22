@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Simplifique.Domain.Entities;
+using Simplifique.Domain.ValueObjects;
 
 namespace Simplifique.Domain
 {
-    public class Contato
+    public class Contato : Entity
     {
-        public Guid IdContato { get; set; }
         public Cadastro IdUsuario { get; set; }
 
         public string Facebook { get; set; }
@@ -17,5 +17,14 @@ namespace Simplifique.Domain
 
         public Telefone Telefone { get; set; }
 
+        public Contato(Cadastro idUsuario, string facebook, string instagram, Telefone whatsApp, string email, Telefone telefone)
+        {
+            IdUsuario = idUsuario;
+            Facebook = facebook;
+            Instagram = instagram;
+            WhatsApp = whatsApp;
+            Email = email;
+            Telefone = telefone;
+        }
     }
 }
