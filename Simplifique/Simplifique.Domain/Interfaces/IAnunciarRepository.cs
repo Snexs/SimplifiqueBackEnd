@@ -4,6 +4,6 @@ namespace Simplifique.Domain.Interfaces
 {
     public interface IAnunciarRepository
     {
-        public Task<Anunciar> Anunciar(decimal valor,string descricao,Categoria categoria,Contato contato,string titulo,Cadastro IdUsuario);
+        public Task<Anunciar> Anunciar(Cadastro anunciante, string titulo, Contato contato, string descricao, Categoria categoria, decimal valor);
     }
 }

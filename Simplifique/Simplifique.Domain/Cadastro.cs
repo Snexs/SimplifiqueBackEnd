@@ -16,6 +16,8 @@ namespace Simplifique.Domain
         public Endereco Endereco { get; set; }
         public TipoPessoaEnum TipoPessoa { get; set; }
 
+        public Cadastro() { }
+
         public Cadastro(Nome nome, Documento cpf_Cnpj, DateTime dataDeNascimento, Telefone telefone, Email email, string senha, Endereco endereco, TipoPessoaEnum tipoPessoa)
         {
             Nome = nome;
@@ -26,8 +28,6 @@ namespace Simplifique.Domain
             Senha = senha;
             Endereco = endereco;
             TipoPessoa = tipoPessoa;
-
-            AddNotifications(nome, cpf_Cnpj, telefone, email, endereco);
         }
     }
 }

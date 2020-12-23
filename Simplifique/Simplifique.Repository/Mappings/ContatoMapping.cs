@@ -12,14 +12,13 @@ namespace Simplifique.Infra.Mappings
 
             builder.OwnsOne(c => c.IdUsuario, cto =>
             {
-                cto.WithOwner().HasForeignKey("Id").HasConstraintName("IdUsuario");
+                cto.WithOwner(nameof(Cadastro)).HasForeignKey("Id").HasConstraintName("IdCliente");
             });
 
             builder.Property(c => c.Facebook).HasColumnType("varchar(100)");
             builder.Property(c => c.Instagram).HasColumnType("varchar(100)");
-            builder.Property(c => c.Email).HasColumnType("varchar(100)").IsRequired();
-
             builder.Property(c => c.Telefone).HasColumnType("bigint");
+            builder.Property(c => c.Email).HasColumnType("varchar(100)").IsRequired();
             builder.Property(c => c.WhatsApp).HasColumnType("bigint").IsRequired();
 
             builder.ToTable("Contato");

@@ -6,6 +6,8 @@ namespace Simplifique.Domain
     {
         public string Nome { get; set; }
 
+        public Categoria() { }
+
         public Categoria(string nome)
         {
             Nome = nome;

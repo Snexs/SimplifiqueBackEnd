@@ -17,6 +17,8 @@ namespace Simplifique.Domain
 
         public Telefone Telefone { get; set; }
 
+        public Contato() { }
+
         public Contato(Cadastro idUsuario, string facebook, string instagram, Telefone whatsApp, string email, Telefone telefone)
         {
             IdUsuario = idUsuario;

@@ -21,7 +21,6 @@ namespace Simplifique.Infra
             services.AddScoped<IContatoRepository, ContatoRepository>();
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<SimplifiqueContext>();
-
         }
     }
 }

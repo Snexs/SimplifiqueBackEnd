@@ -4,6 +4,5 @@ namespace Simplifique.Domain
 {
     public class ApplicationUser : IdentityUser
     {
-
     }
 }

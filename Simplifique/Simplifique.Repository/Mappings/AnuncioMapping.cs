@@ -13,11 +13,11 @@ namespace Simplifique.Infra.Mappings
 
             builder.OwnsOne(a => a.Contato,  contato => 
             {
-                contato.WithOwner().HasForeignKey("Id").HasConstraintName("IdContato");
+                contato.WithOwner("Contato").HasForeignKey("Id").HasConstraintName("IdContato");
                 contato.Property(c => c.Facebook).HasColumnType("varchar(100)");
-                contato.Property(c => c.Email).IsRequired().HasColumnType("varchar(100)");
                 contato.Property(c => c.Instagram).HasColumnType("varchar(100)");
                 contato.Property(c => c.Telefone).HasColumnType("varchar(100)");
+                contato.Property(c => c.Email).IsRequired().HasColumnType("varchar(100)");
                 contato.Property(c => c.WhatsApp).IsRequired().HasColumnType("varchar(100)");
             });
 

@@ -8,7 +8,7 @@ namespace Simplifique.Infra.Mappings
     {
         public void Configure(EntityTypeBuilder<Cadastro> builder)
         {
-            builder.HasKey(c => c.Id).HasName("IdCadastro");
+            builder.HasKey(c => c.Id).HasName("IdCliente");
 
             builder.Property(c => c.Nome).IsRequired().HasColumnType("varchar(100)");
             builder.Property(c => c.DataDeNascimento).IsRequired().HasColumnType("datetime");

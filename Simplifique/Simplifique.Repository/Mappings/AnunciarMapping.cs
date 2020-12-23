@@ -12,17 +12,17 @@ namespace Simplifique.Infra.Mappings
 
             builder.OwnsOne(a => a.Anunciante,c => 
             {
-                c.WithOwner().HasForeignKey("Id").HasConstraintName("IdCliente");
+                c.WithOwner(nameof(Cadastro)).HasForeignKey("Id").HasConstraintName("IdCliente");
             });
 
             builder.OwnsOne(a => a.Categoria, ca =>
             {
-                ca.WithOwner().HasForeignKey("Id").HasConstraintName("IdCategoria");
+                ca.WithOwner(nameof(Categoria)).HasForeignKey("Id").HasConstraintName("IdCategoria");
             });
 
             builder.OwnsOne(a => a.Contato, co =>
             {
-                co.WithOwner().HasForeignKey("Id").HasConstraintName("IdContato");
+                co.WithOwner(nameof(Contato)).HasForeignKey("Id").HasConstraintName("IdContato");
             });
 
             builder.Property(a => a.Descricao).IsRequired().HasColumnType("varchar(150)");

@@ -12,6 +12,8 @@ namespace Simplifique.Domain
         public Categoria Categoria { get; set; }
         public decimal Valor { get; set; }
 
+        public Anunciar(){}
+
         public Anunciar(Cadastro anunciante, string titulo, Contato contato, string descricao, Categoria categoria, decimal valor)
         {
             Anunciante = anunciante;

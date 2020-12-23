@@ -12,6 +12,8 @@ namespace Simplifique.Domain
         public Contato Contato { get; set; }
         public string ObservacaoContato { get; set; }
 
+        public Anuncio() { }
+
         public Anuncio(string titulo, decimal valor, string descricao, int avaliacao, string comentario, Contato contato, string observacaoContato)
         {
             Titulo = titulo;

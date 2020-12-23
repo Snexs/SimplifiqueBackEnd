@@ -14,9 +14,9 @@ namespace Simplifique.Infra.Repository
             _context = simplifiqueContext;
         }
 
-        public async Task<Anunciar> Anunciar(decimal valor, string descricao, Categoria categoria, Contato contato, string titulo,Cadastro user)
+        public async Task<Anunciar> Anunciar(Cadastro anunciante, string titulo, Contato contato, string descricao, Categoria categoria, decimal valor)
         {
-            var anunciante = await _context.Cadastro.FindAsync(user.Id);
+            var usuarioAnunciante = await _context.Cadastro.FindAsync(anunciante.Id);
             Anunciar anuncio = new Anunciar(anunciante,titulo,contato,descricao,categoria,valor);
             await _context.Anunciar.AddAsync(anuncio);
             await _context.Commit();
